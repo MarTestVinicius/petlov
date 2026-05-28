@@ -24,7 +24,7 @@ jobs:
           # https://docs.cypress.io/app/continuous-integration/overview#Boot-your-server
           install-command: npm install
           wait-on: 'https://petlov.vercel.app' # Waits for above
-          brower: chrome # Runs tests in Chrome browser
+          browser: chrome # Runs tests in Chrome browser
           # Records to Cypress Cloud 
           # https://docs.cypress.io/cloud/get-started/setup
           record: true
