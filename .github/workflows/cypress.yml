@@ -1,6 +1,9 @@
 name: Cypress E2E Tests
 on:
-  workflow_dispatch: # Allows manual trigger of workflow from GitHub UI
+  workflow_dispatch: # Allows manual trigger of workflow from GitHub UIgit
+    inputs:
+      spec:
+        default: cypress/e2e/*
 jobs:
   tests:
     runs-on: ubuntu-latest
@@ -30,6 +33,7 @@ jobs:
           # https://docs.cypress.io/cloud/get-started/setup
           record: true
           parallel: true # Runs test in parallel using settings above
+          spec: ${{ github.event.inputs.spec }} # Allows passing spec pattern as input when triggering workflow
         env:
           # For recording and parallelization you must set your CYPRESS_RECORD_KEY
           # in GitHub repo → Settings → Secrets → Actions
